@@ -7,8 +7,8 @@
   </head>
   <body>
     <select class="instrumentSelector" id="instrumentSelector">
-      <option value="dobulebass">Double Bass</option>
-      <option value="drum">Drums</option>
+      <option value="doublebass">Double Bass</option>
+      <option value="drums">Drums</option>
     </select>
     <div class="keys">
       <div data-key="65" class="key">
@@ -40,28 +40,13 @@
       </div> -->
     </div>
 
-    <!-- <audio data-key="65" src="sounds/clap.wav"></audio> -->
-    <audio
-      data-key="65"
-      src="sounds/Alesis-Fusion-Acoustic-Bass-C2.wav"
-    ></audio>
-
-    <!-- <audio data-key="83" src="sounds/breaks/1.wav"></audio>
-    <audio data-key="68" src="sounds/breaks/2.wav"></audio>
-    <audio data-key="70" src="sounds/breaks/3.wav"></audio>
-    <audio data-key="71" src="sounds/breaks/4.wav"></audio>
-    <audio data-key="72" src="sounds/breaks/5.wav"></audio>
-    <audio data-key="74" src="sounds/snare.wav"></audio> -->
     <audio data-key="65"></audio>
     <audio data-key="83"></audio>
     <audio data-key="68"></audio>
     <audio data-key="70"></audio>
     <audio data-key="71"></audio>
     <audio data-key="72"></audio>
-    <!-- <audio data-key="74" src="sounds/doublebass/F.wav"></audio> -->
-    <!-- <audio data-key="75" src="sounds/tom.wav"></audio> -->
-    <!-- <audio data-key="76" src="sounds/tink.wav"></audio> -->
-    <!-- <audio id='audioInput' -->
+
     <script>
       const keySoundMap = {
         "65": group => `sounds/${group}/A.wav`,
@@ -70,9 +55,6 @@
         "70": group => `sounds/${group}/D.wav`,
         "71": group => `sounds/${group}/E.wav`,
         "72": group => `sounds/${group}/F.wav`
-        // "74": group => `sounds/${group}/F.wav`
-        // 75:(group) => `sounds/${group}A.wav`,
-        // 76:(group) => `sounds/${group}A.wav`,
       };
       function removeTransition(e) {
         if (e.propertyName !== "transform") return;
@@ -81,10 +63,12 @@
 
       function playSound(e) {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-        const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
         if (!audio) return;
 
-        audio.src = keySoundMap[e.keyCode]("doublebass");
+        const instrument = document.querySelector("#instrumentSelector").value;
+        const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+
+        audio.src = keySoundMap[e.keyCode](instrument);
         key.classList.add("playing");
         audio.currentTime = 0;
         audio.play();
@@ -95,7 +79,7 @@
         key.addEventListener("transitionend", removeTransition)
       );
       window.addEventListener("keydown", playSound);
-      document.querySelector("#instrumentSelector").addEventListener();
+      // document.querySelector("#instrumentSelector").addEventListener();
     </script>
   </body>
 </html>

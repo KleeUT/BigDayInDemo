@@ -34,7 +34,7 @@ html {
   height: 10rem;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   /* text-align: center; */
   color: white;
   background: rgba(0, 0, 0, 0.4);
