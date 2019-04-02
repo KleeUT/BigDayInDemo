@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>JS Drum Kit</title>
+    <title>Banana Sound Board</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,51 +16,48 @@
         <option value="piano1">Piano 1</option>
         <option value="piano2">Piano 2</option>
         <option value="synth_chords">Synth Chords</option>
-        <option value="doublebass_short">Double Bass (short)</option>
-        <option value="doublebass_long">Double Bass (long)</option>
+        <option value="doublebass_long">Double Bass</option>
         <option value="trombone">Trombone</option>
-        <option value="percussion1">Noises</option>
-        <option value="percussion2">More Cowebell</option>
         <option value="nintendo_sounds">Nintendo</option>
         <option value="super_mario">Mario</option>
       </select>
     </div>
     <div class="keys">
-      <div data-key="65" class="key">
-        <kbd>A</kbd>
+      <div data-key="37" class="key">
+        <kbd>Left</kbd>
       </div>
-      <div data-key="83" class="key">
-        <kbd>S</kbd>
+      <div data-key="38" class="key">
+        <kbd>Up</kbd>
       </div>
-      <div data-key="68" class="key">
-        <kbd>D</kbd>
+      <div data-key="39" class="key">
+        <kbd>Right</kbd>
       </div>
-      <div data-key="70" class="key">
-        <kbd>F</kbd>
+      <div data-key="40" class="key">
+        <kbd>Down</kbd>
       </div>
-      <div data-key="71" class="key">
-        <kbd>G</kbd>
+      <div data-key="32" class="key">
+        <kbd>Space</kbd>
       </div>
-      <div data-key="72" class="key">
-        <kbd>H</kbd>
+      <div data-key="17" class="key">
+        <kbd>Click</kbd>
       </div>
     </div>
 
-    <audio data-key="65"></audio>
-    <audio data-key="83"></audio>
-    <audio data-key="68"></audio>
-    <audio data-key="70"></audio>
-    <audio data-key="71"></audio>
-    <audio data-key="72"></audio>
+    <audio data-key="37"></audio>
+    <audio data-key="39"></audio>
+    <audio data-key="38"></audio>
+    <audio data-key="40"></audio>
+    <audio data-key="32"></audio>
+    <audio data-key="17"></audio>
 
     <script>
       const keySoundMap = {
-        "65": group => `sounds/${group}/A.wav`,
-        "83": group => `sounds/${group}/B.wav`,
-        "68": group => `sounds/${group}/C.wav`,
-        "70": group => `sounds/${group}/D.wav`,
-        "71": group => `sounds/${group}/E.wav`,
-        "72": group => `sounds/${group}/F.wav`
+        "37": group => `sounds/${group}/A.wav`,
+        "39": group => `sounds/${group}/B.wav`,
+        "38": group => `sounds/${group}/C.wav`,
+        "40": group => `sounds/${group}/D.wav`,
+        "32": group => `sounds/${group}/E.wav`,
+        "17": group => `sounds/${group}/F.wav`
       };
       function removeTransition(e) {
         if (e.propertyName !== "transform") return;
