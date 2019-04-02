@@ -6,14 +6,25 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <select class="instrumentSelector" id="instrumentSelector">
-      <option value="drums">Drums</option>
-      <option value="doublebass_short">Double Bass (short)</option>
-      <option value="doublebass_long">Double Bass (long)</option>
-      <option value="trombone">Trombone</option>
-      <option value="percussion1">Noises</option>
-      <option value="percussion2">More Cowebell</option>
-    </select>
+    <div class="title-box">
+      <h1 class="title">Banana Sound Board</h1>
+      <h2 class="sub-title">Big Day In 2019</h2>
+    </div>
+    <div class="select-box">
+      <select class="instrumentSelector" id="instrumentSelector">
+        <option value="drums">Drums</option>
+        <option value="piano1">Piano 1</option>
+        <option value="piano2">Piano 2</option>
+        <option value="synth_chords">Synth Chords</option>
+        <option value="doublebass_short">Double Bass (short)</option>
+        <option value="doublebass_long">Double Bass (long)</option>
+        <option value="trombone">Trombone</option>
+        <option value="percussion1">Noises</option>
+        <option value="percussion2">More Cowebell</option>
+        <option value="nintendo_sounds">Nintendo</option>
+        <option value="super_mario">Mario</option>
+      </select>
+    </div>
     <div class="keys">
       <div data-key="65" class="key">
         <kbd>A</kbd>
@@ -76,7 +87,7 @@
       const keys = Array.from(document.querySelectorAll(".key"));
       keys.forEach(key => {
         key.addEventListener("transitionend", removeTransition);
-        key.addEventListener("click", () =>
+        key.addEventListener("click", e =>
           playSound(key.attributes["data-key"].nodeValue)
         );
       });

@@ -1,11 +1,12 @@
+/* @import url('PressStart2P-Regular.ttf'); */
 html {
   font-size: 10px;
-  background: url(banana.jpg) bottom center;
-  background-size: cover;
+  max-height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+
 }
 
-body,
-html {
+body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -13,12 +14,19 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-height: 100vh;
+  height: 100vh;
+
+  background: url(banana.jpg) bottom center;
+  background-size: cover;
+
+
 }
 
 .keys {
   display: flex;
   flex: 1;
-  min-height: 100vh;
+  height: 100vh;
   align-items: center;
   justify-content: center;
 }
@@ -65,4 +73,13 @@ kbd {
   border-radius: 5px;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.title{
+  font-size: 10rem;
+  text-align: center;
+}
+.sub-title{
+  font-size: 5rem;
+  text-align: center;
 }
